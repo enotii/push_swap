@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   help_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 16:17:40 by caking            #+#    #+#             */
-/*   Updated: 2019/07/29 18:29:02 by caking           ###   ########.fr       */
+/*   Created: 2019/07/30 15:21:35 by caking            #+#    #+#             */
+/*   Updated: 2019/07/30 15:44:55 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+void	check_dublicate(int *array, int n)
 {
-	int	res;
-	int	negative;
+	int		i;
+	int		tmp;
+	int		j;
 
-	negative = 1;
-	res = 0;
-	while (*str && (*str == ' ' || *str == '\n' || *str == '\t' ||
-			*str == '\v' || *str == '\f' || *str == '\r'))
-		++str;
-	if (*str == '-')
-		negative = -1;
-	if (*str == '-' || *str == '+')
-		++str;
-	while (*str && *str >= '0' && *str <= '9')
+	i = 0;
+	while (i < n)
 	{
-		res = res * 10 + (*str - 48);
-		++str;
+		tmp = array[i];
+		j = i + 1;
+		while (j < n)
+		{
+			if (array[j] == tmp)
+				ft_error(1);
+			j++;
+		}
+		++i;
 	}
-	return (res * negative);
+}
+
+void	ft_error(int n)
+{
+	ft_putstr("\033[0;31m");
+	(n == 1) ? (ft_putstr("dublicate array\n")) : 0;
+
+	exit(-1);
 }
