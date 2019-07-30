@@ -6,7 +6,7 @@
 /*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 13:16:53 by caking            #+#    #+#             */
-/*   Updated: 2019/07/30 15:45:04 by caking           ###   ########.fr       */
+/*   Updated: 2019/07/30 17:10:16 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,12 @@ void stack_done(t_struct *arr, char **result, int n)
     arr->a = (int*)malloc(sizeof(int) * n);
     arr->in_a = n;
     arr->in_b = 0;
-    arr->n = arr->in_a;
     if(arr->argc == 1)
+    {
+        arr->in_a = n-1;
         i = 1;
+    }
+    arr->n = arr->in_a;
     while(i < n)
     {
         arr->a[j] = ft_atoi(result[i]);
@@ -73,19 +76,29 @@ void    ft_split(t_struct *arr, char *str)
 int main(int argc, char *argv[])
 {
     t_struct    *arr;
+
     if(argc == 1)
         return(0);
     arr = (t_struct*)malloc(sizeof(t_struct));
     if(argc == 2)
-    {
         ft_split(arr,argv[1]);
-        arr->argc = 0;
-    }
     else if(argc > 2)
     {
         arr->argc = 1;
         stack_done(arr,argv,argc);
     }
     check_dublicate(arr->a,arr->n);
+    if (need_sort(arr->a, arr->in_a, arr->n))
+		return (0);
+    if(arr->n == 2)
+    {
+        do_something(arr, "sa");
+        ft_putstr("sa\n");
+        exit(0);
+    }
+    else if(arr->n > 2)
+        go_push_swap(arr);
+    free(arr->a);
+    free(arr);
     return 0;
 }

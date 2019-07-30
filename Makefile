@@ -6,7 +6,7 @@
 #    By: caking <caking@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/29 16:31:21 by caking            #+#    #+#              #
-#    Updated: 2019/07/30 15:49:46 by caking           ###   ########.fr        #
+#    Updated: 2019/07/30 16:55:54 by caking           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,10 @@ NAME = push_swap
 LIB = -I libft/libft.h -L./libft -lft
 
 SRC = main.c \
-		help_functions.c
+		help_functions.c\
+		commands.c\
+		push_swap.c
+		
 
 
 OBJ = $(SRC:.c=.o)
@@ -36,4 +39,4 @@ fclean: clean
 re: fclean all
 
 debug:
-	 gcc -ggdb ft_atoi.c main.c swap.h
+	 gcc -ggdb main.c push_swap.c help_functions.c commands.c -I push_swap.h -I libft/libft.h -L./libft -lft
