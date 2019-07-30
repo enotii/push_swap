@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   help_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: caking <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 15:21:35 by caking            #+#    #+#             */
-/*   Updated: 2019/07/30 17:16:48 by caking           ###   ########.fr       */
+/*   Updated: 2019/07/30 22:43:02 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	check_dublicate(int *array, int n)
 	int		j;
 
 	i = 0;
+	if(n == 1)
+		ft_error(2);
 	while (i < n)
 	{
 		tmp = array[i];
@@ -36,7 +38,8 @@ void	check_dublicate(int *array, int n)
 void	ft_error(int n)
 {
 	ft_putstr("\x1b[35m");
-	(n == 1) ? (ft_putstr("dublicate array\n")) : 0;
+	(n == 1) ? (ft_putstr("duplicate array\n")) : 0;
+	(n == 2) ? (ft_putstr("this is not array\n")) : 0;
 
 	exit(-1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: caking <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 13:16:53 by caking            #+#    #+#             */
-/*   Updated: 2019/07/30 17:18:47 by caking           ###   ########.fr       */
+/*   Updated: 2019/07/30 22:43:34 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ int main(int argc, char *argv[])
         ft_putstr("sa\n");
         exit(0);
     }
-    else if(arr->n > 2)
-        go_push_swap(arr);
+   else if(arr->n > 2)
+       go_push_swap(arr);
     free(arr->a);
     free(arr);
     return 0;
