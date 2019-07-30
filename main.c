@@ -6,7 +6,7 @@
 /*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 13:16:53 by caking            #+#    #+#             */
-/*   Updated: 2019/07/30 17:10:16 by caking           ###   ########.fr       */
+/*   Updated: 2019/07/30 17:18:47 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void stack_done(t_struct *arr, char **result, int n)
         n--;
      while(i < n)
     {
-        printf("%d\t",arr->a[i]);
+        printf("\x1b[32m%d\t",arr->a[i]);
         i++;
     }
 }

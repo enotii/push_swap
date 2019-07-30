@@ -6,7 +6,7 @@
 /*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 15:21:35 by caking            #+#    #+#             */
-/*   Updated: 2019/07/30 16:54:36 by caking           ###   ########.fr       */
+/*   Updated: 2019/07/30 17:16:48 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	check_dublicate(int *array, int n)
 
 void	ft_error(int n)
 {
-	ft_putstr("\033[0;31m");
+	ft_putstr("\x1b[35m");
 	(n == 1) ? (ft_putstr("dublicate array\n")) : 0;
 
 	exit(-1);
