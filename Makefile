@@ -6,7 +6,7 @@
 #    By: caking <caking@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/29 16:31:21 by caking            #+#    #+#              #
-#    Updated: 2019/07/30 15:46:22 by caking           ###   ########.fr        #
+#    Updated: 2019/07/30 15:49:46 by caking           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = push_swap
 
 LIB = -I libft/libft.h -L./libft -lft
 
-SRC =	*.c
+SRC = main.c \
+		help_functions.c
 
 
 OBJ = $(SRC:.c=.o)
