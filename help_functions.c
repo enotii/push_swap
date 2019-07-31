@@ -3,14 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   help_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: caking <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 15:21:35 by caking            #+#    #+#             */
-/*   Updated: 2019/07/30 22:43:02 by caking           ###   ########.fr       */
+/*   Updated: 2019/07/31 16:53:45 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	quicksort(int *list, int low, int high, int i)
+{
+	int		pivot;
+	int		j;
+	int		temp;
+
+	if (low < high)
+	{
+		pivot = low;
+		i = low;
+		j = high;
+		while (i < j)
+		{
+			while (list[i] <= list[pivot] && i <= high)
+				i++;
+			while (list[j] > list[pivot] && j >= low)
+				j--;
+			(i < j) ? (temp = list[i]) : 0;
+			(i < j) ? (list[i] = list[j]) : 0;
+			(i < j) ? (list[j] = temp) : 0;
+		}
+		temp = list[j];
+		list[j] = list[pivot];
+		list[pivot] = temp;
+		quicksort(list, low, j - 1, 0);
+		quicksort(list, j + 1, high, 0);
+	}
+}
+
+int		*copy_array(int *arr, int size)
+{
+	int *result;
+	int i;
+
+	result = (int *)malloc(sizeof(int) * size);
+	i = 0;
+	while(i < size)
+	{
+		result[i] = arr[i];
+		i++;
+	}
+	return(result);
+}
 
 void	check_dublicate(int *array, int n)
 {
@@ -63,6 +107,28 @@ int		need_sort(int *arr, int in_a, int n)
 }
 void    do_something(t_struct *arr, char *op)
 {
+	int f;
+
+	f = 0;
     (ft_strcmp(op,"sa") == 0) ? do_sa(arr,1) : 0;
+	(ft_strcmp(op, "sa") == 0 || ft_strcmp(op, "sb") == 0) ? (f++) : 0;
+	(ft_strcmp(op, "ss") == 0 || ft_strcmp(op, "pa") == 0) ? (f++) : 0;
+	(ft_strcmp(op, "pb") == 0 || ft_strcmp(op, "ra") == 0) ? (f++) : 0;
+	(ft_strcmp(op, "rb") == 0 || ft_strcmp(op, "rr") == 0) ? (f++) : 0;
+	(ft_strcmp(op, "rra") == 0 || ft_strcmp(op, "rrb") == 0) ? (f++) : 0;
+	(ft_strcmp(op, "rrr") == 0) ? (f++) : 0;
+	(ft_strcmp(op, "sb") == 0) ? ft_swap_two_first(arr, 2) : 0;
+	(ft_strcmp(op, "ss") == 0) ? ft_swap_two_first(arr, 1) : 0;
+	(ft_strcmp(op, "ss") == 0) ? ft_swap_two_first(arr, 2) : 0;
+	(ft_strcmp(op, "pa") == 0) ? ft_put(arr, 1) : 0;
+	(ft_strcmp(op, "pb") == 0) ? ft_put(arr, 2) : 0;
+	(ft_strcmp(op, "ra") == 0) ? ft_shift_up(arr->a, arr->in_a) : 0;
+	(ft_strcmp(op, "rb") == 0) ? ft_shift_up(arr->b, arr->in_b) : 0;
+	(ft_strcmp(op, "rr") == 0) ? ft_shift_up(arr->a, arr->in_a) : 0;
+	(ft_strcmp(op, "rr") == 0) ? ft_shift_up(arr->b, arr->in_b) : 0;
+	(ft_strcmp(op, "rra") == 0) ? ft_shift_down(arr->a, arr->in_a) : 0;
+	(ft_strcmp(op, "rrb") == 0) ? ft_shift_down(arr->b, arr->in_b) : 0;
+	(ft_strcmp(op, "rrr") == 0) ? ft_shift_down(arr->a, arr->in_a) : 0;
+	(ft_strcmp(op, "rrr") == 0) ? ft_shift_down(arr->b, arr->in_b) : 0;
 
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: caking <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 13:16:53 by caking            #+#    #+#             */
-/*   Updated: 2019/07/30 22:43:34 by caking           ###   ########.fr       */
+/*   Updated: 2019/07/31 12:39:45 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ void stack_done(t_struct *arr, char **result, int n)
     i = 0;
     if(arr->argc == 1)
         n--;
-     while(i < n)
-    {
-        printf("\x1b[32m%d\t",arr->a[i]);
-        i++;
-    }
+    //  while(i < n)
+    // {
+    //     printf("\x1b[32m%d\t",arr->a[i]);
+    //     i++;
+    // }
 }
 
 void    ft_split(t_struct *arr, char *str)

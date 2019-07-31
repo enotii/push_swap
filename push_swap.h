@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gachibass228 <marvin@42.fr>                +#+  +:+       +#+        */
+/*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 13:17:42 by caking            #+#    #+#             */
-/*   Updated: 2019/07/30 21:36:47 by gachibass22      ###   ########.fr       */
+/*   Updated: 2019/07/31 19:24:40 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include "libft/libft.h"
+# include "ft_printf/include/ft_printf.h"
 
 typedef struct			s_struct
 {
@@ -25,6 +26,7 @@ typedef struct			s_struct
 	int					in_b;
 	unsigned int		argc;
 	int 				n_operation;
+	int					visualization;
 }						t_struct;
 
 typedef struct          s_do
@@ -44,6 +46,18 @@ int		need_sort(int *arr, int in_a, int n);
 void    go_push_swap(t_struct *arr);
 void	ft_swap_from_a(t_struct *s, t_do *op, int len, int i);
 void	ft_sort_three(t_struct *s, t_do *op, int f);
+void	ft_swap_two_first(t_struct *src, int f);
+void	ft_put(t_struct *src, int f);
+void	ft_shift_down(int *src, int n);
+void	ft_shift_up(int *src, int n);
+void	ft_copy_i_a(int **t, int *src, int n);
+void	ft_put_a(t_struct *src);
+int		find_median(int *arr,int n, int f);
+int		*copy_array(int *arr, int size);
+void	quicksort(int *list, int low, int high, int i);
+int		what_about_med(int *arr, int n, int med, int f);
+void	ft_swap_from_b(t_struct *arr, t_do *op, int len, int i);
+void	ft_sort_three_with_nothing(t_struct *arr, t_do *head);
 
 
 #endif
