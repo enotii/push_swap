@@ -6,7 +6,7 @@
 /*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 13:16:53 by caking            #+#    #+#             */
-/*   Updated: 2019/08/01 14:32:39 by caking           ###   ########.fr       */
+/*   Updated: 2019/08/01 16:29:36 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void stack_done(t_struct *arr, char **result, int n)
         arr->in_a = n-1;
         i = 1;
     }
-    if(arr->visualization == 1)
+    if(arr->visualization == 1 || arr->visualization == 2)
     {
          j--;
          arr->in_a--;
@@ -82,10 +82,9 @@ int main(int argc, char *argv[])
     arr = (t_struct*)malloc(sizeof(t_struct));
     arr->visualization = 0;
     if(ft_strcmp(argv[1],"-v") == 0)
-    {
         arr->visualization = 1;
-       // argc--;
-    }
+    if(ft_strcmp(argv[1],"-c") == 0)
+        arr->visualization = 2;
     if(argc == 2)
         ft_split(arr,argv[1]);
     else if(argc > 2)
@@ -93,7 +92,7 @@ int main(int argc, char *argv[])
         arr->argc = 1;
         stack_done(arr,argv,argc);
     }
- //   check_dublicate(arr->a,arr->n);
+    check_dublicate(arr->a,arr->n);
     if (need_sort(arr->a, arr->in_a, arr->n))
 		return (0);
     if(arr->n == 2)

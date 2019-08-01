@@ -6,7 +6,7 @@
 /*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 22:43:22 by caking            #+#    #+#             */
-/*   Updated: 2019/08/01 16:01:11 by caking           ###   ########.fr       */
+/*   Updated: 2019/08/01 16:32:27 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_op(t_struct *s, t_do **head, char *src)
 	i = 0;
 	j = 0;
 	point = *head;
-	if (s->visualization == 1)
+	if (s->visualization == 1 || s->visualization == 2)
 	{
 		printf("\x1b[32mstack <A>\t stack <B>\n");
 	while(i < s->in_a || j < s->in_b)
@@ -44,6 +44,7 @@ void	ft_op(t_struct *s, t_do **head, char *src)
 		if(i == s->in_a && j < s->in_b)
 		printf("\x1b[32ms\t   %d\n",s->b[j++]);
 	}
+	if(s->visualization == 1)
 	getchar();
 	system("clear");
 	ft_printf("\x1b[35mCOMMAND IS --> %s\n",src);
@@ -226,17 +227,16 @@ void    go_push_swap(t_struct *arr)
 	head->s = NULL;
 	head->next = NULL;
 	arr->n_operation = 0;
-	//arr->visualization = 1;
 	if (arr->in_a > 3)
 		ft_swap_from_a(arr, head, arr->in_a, 0);
 	else
 	 	ft_sort_three_with_nothing(arr, head);
 	if(arr->visualization == 0)
 	 print_result(head, arr);
-	if(arr->visualization == 1)
+	if(arr->visualization == 1 || arr->visualization == 2)
 	{
 		 printf("\x1b[32mstack <A>\t stack <B>\n");
 		 while(i < arr->in_a)
 		 printf("\x1b[32m   %d\n",arr->a[i++]);
-	 }
+	}
 }
