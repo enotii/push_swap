@@ -6,7 +6,7 @@
 /*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 13:16:53 by caking            #+#    #+#             */
-/*   Updated: 2019/08/01 16:29:36 by caking           ###   ########.fr       */
+/*   Updated: 2019/08/01 16:54:47 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void stack_done(t_struct *arr, char **result, int n)
         arr->in_a = n-1;
         i = 1;
     }
-    if(arr->visualization == 1 || arr->visualization == 2)
+    if(arr->visualization != 0)
     {
          j--;
          arr->in_a--;
