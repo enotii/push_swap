@@ -13,7 +13,7 @@
 NAME = push_swap
 
 LIB = -I libft/libft.h -L./libft -lft
-PRINTF = -I ft_printf/include/ft_printf.h -L./ft_printf -lftprintf
+PRINTF = -I ft_printf/include/ft_printf.h -L./ft_printf -l ftprintf
 
 SRC = main.c \
 		help_functions.c \

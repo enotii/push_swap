@@ -6,7 +6,7 @@
 /*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 13:17:42 by caking            #+#    #+#             */
-/*   Updated: 2019/07/31 19:24:40 by caking           ###   ########.fr       */
+/*   Updated: 2019/08/01 15:55:15 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	quicksort(int *list, int low, int high, int i);
 int		what_about_med(int *arr, int n, int med, int f);
 void	ft_swap_from_b(t_struct *arr, t_do *op, int len, int i);
 void	ft_sort_three_with_nothing(t_struct *arr, t_do *head);
+void	print_dots(int a);
 
 
 #endif
