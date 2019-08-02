@@ -6,7 +6,7 @@
 /*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 15:21:35 by caking            #+#    #+#             */
-/*   Updated: 2019/08/01 17:52:06 by caking           ###   ########.fr       */
+/*   Updated: 2019/08/02 15:12:09 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ void	ft_error(int n)
 	(n == 1) ? (ft_putstr("duplicate array\n")) : 0;
 	(n == 2) ? (ft_putstr("this is not array\n")) : 0;
 	(n == 3) ? (ft_putstr("usage ./checker with arg")) : 0;
+	(n == 4) ? (ft_putstr("this is not valid oparations")) : 0;
+
 
 	exit(-1);
 }
@@ -131,5 +133,5 @@ void    do_something(t_struct *arr, char *op)
 	(ft_strcmp(op, "rrb") == 0) ? ft_shift_down(arr->b, arr->in_b) : 0;
 	(ft_strcmp(op, "rrr") == 0) ? ft_shift_down(arr->a, arr->in_a) : 0;
 	(ft_strcmp(op, "rrr") == 0) ? ft_shift_down(arr->b, arr->in_b) : 0;
-
+	(f != 1) ? (ft_error(4)) : 0;
 }

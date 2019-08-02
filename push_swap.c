@@ -6,21 +6,11 @@
 /*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 22:43:22 by caking            #+#    #+#             */
-/*   Updated: 2019/08/01 16:32:27 by caking           ###   ########.fr       */
+/*   Updated: 2019/08/02 15:34:17 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_dots(int a)
-{
-	while(a>=0)
-	{
-		ft_printf(".");
-		a--;
-	}
-	ft_printf("\n");
-}
 
 void	ft_op(t_struct *s, t_do **head, char *src)
 {
@@ -34,20 +24,20 @@ void	ft_op(t_struct *s, t_do **head, char *src)
 	point = *head;
 	if (s->visualization == 1 || s->visualization == 2)
 	{
-		printf("\x1b[32mstack <A>\t stack <B>\n");
+		ft_printf("\x1b[32mstack <A>\t stack <B>\n");
 	while(i < s->in_a || j < s->in_b)
 	{
 		if(i < s->in_a && j < s->in_b)
-		printf("\x1b[32m   %d\t\t%d\n",s->a[i++],s->b[j++]);
+		ft_printf("\x1b[32m   %d\t\t%d\n",s->a[i++],s->b[j++]);
 		if(i < s->in_a && j == s->in_b)
-		printf("\x1b[32m   %d\n",s->a[i++]);
+		ft_printf("\x1b[32m   %d\n",s->a[i++]);
 		if(i == s->in_a && j < s->in_b)
-		printf("\x1b[32ms\t   %d\n",s->b[j++]);
+		ft_printf("\x1b[32ms\t   %d\n",s->b[j++]);
 	}
 	if(s->visualization == 1)
 	getchar();
 	system("clear");
-	ft_printf("\x1b[35mCOMMAND IS --> %s\n",src);
+	 ft_printf("\x1b[35mCOMMAND IS --> %s\n",src);
 	}
 	do_something(s, src);
 	if (point->s == NULL)
@@ -206,7 +196,6 @@ void	print_result(t_do *op, t_struct *arr)
 	while(op)
 	{
 		delete = op;
-		ft_putstr("\x1b[35m");
 		ft_putstr(op->s);
 		ft_putstr("\n");
 		op = op->next;

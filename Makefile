@@ -6,7 +6,7 @@
 #    By: caking <caking@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/29 16:31:21 by caking            #+#    #+#              #
-#    Updated: 2019/08/01 16:47:29 by caking           ###   ########.fr        #
+#    Updated: 2019/08/02 15:20:23 by caking           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ PRINTF = -I ft_printf/include/ft_printf.h -L./ft_printf -l ftprintf
 
 SRC =   help_functions.c \
 		commands.c \
-		push_swap.c
+		push_swap.c \
+		parse.c \
+		get_next_line.c
 		
 OBJ = $(SRC:.c=.o)
 
@@ -48,4 +50,4 @@ fclean: clean
 re: fclean all
 
 debug:
-	 gcc -ggdb main.c push_swap.c help_functions.c commands.c -I push_swap.h -I libft/libft.h -L./libft -lft
+	 gcc -ggdb checker_main.c push_swap.c help_functions.c commands.c get_next_line.c parse.c -I push_swap.h -I libft/libft.h -L./libft -lft $(PRINTF)
