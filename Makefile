@@ -6,7 +6,7 @@
 #    By: caking <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/29 16:31:21 by caking            #+#    #+#              #
-#    Updated: 2019/08/03 22:40:43 by caking           ###   ########.fr        #
+#    Updated: 2019/08/03 23:27:52 by caking           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,13 @@ NAME2 = checker
 LIB = -I libft/libft.h -L./libft -lft
 PRINTF = -I ft_printf/include/ft_printf.h -L./ft_printf -l ftprintf
 
-SRC =   help_functions.c \
+SRC =   help_function3.c \
+		help_functions2.c \
+		help_functions.c \
 		commands.c \
 		push_swap.c \
 		parse.c \
-		get_next_line.c \
-		help_functions2
+		get_next_line.c 
 		
 OBJ = $(SRC:.c=.o)
 
@@ -60,4 +61,4 @@ val:
 	valgrind --leak-check=full ./checker 4 3 2 1
 
 norm:
-	norminette -R CheckForbiddenSourceHeader push_swap.c
+	norminette -R CheckForbiddenSourceHeader *.c

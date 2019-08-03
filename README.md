@@ -1,18 +1,38 @@
-# push_swap
+# PUSH_SWAP_CHECKER
 
+1) Do MAKE.
 
-test 101
+2) Move "test.sh" script into the same folder.
 
-9 2 12 15 43 30 25 20 29 5 17 28 45 46 36 13 40 0 11 49 34 33 47 7 31 35 3 22 42 4 37 8 16 18 48 19 24 32 26 10 6 44 27 14 23 39 38 1 21 41 100 94 89 96 75 97 85 74 80 59 52 84 95 90 88 87 99 82 50 56 65 71 93 53 72 78 67 83 76 70 61 60 73 57 81 55 62 58 66 68 54 63 91 79 77 86 98 92 69 64
+3) The usage is:
 
-test 100
+![alt text](https://raw.github.com/ksnow-be/push_swap_checker/master/PNGS/USAGE.png)
 
-49 69 50 21 40 84 46 14 71 32 3 98 90 8 86 20 73 54 22 28 99 70 72 96 67 61 10 57 19 56 9 5 26 83 12 2 93 64 15 65 47 75 91 34 37 95 13 81 44 63 23 25 27 30 41 79 51 62 55 97 17 48 74 87 68 80 43 11 36 53 66 85 77 52 92 38 76 7 16 45 33 59 1 6 42 82 4 100 58 39 31 29 78 89 88 35 94 18 60 24 43 54 23 14 552 432
+4) If you want FULL check of your project, you should include "-full" flag.
 
-test 5 
-15 9 7 3 2
+# EXAMPLE OF AN OKAY PROJECT (-full)
 
+![alt text](https://raw.github.com/ksnow-be/push_swap_checker/master/PNGS/OKAY_PS.png)
 
-test valid 
+# EXAMPLE OF A BAD PROJECT (-full)
 
-49 69 50 21 40 84 46 14 71 32 3 98 90 8 86 20 73 54 22 28 99 70 72 96 67 61 10 57 19 56 9 5 26 83 12 2 93 64 15 65 4
+![alt text](https://raw.github.com/ksnow-be/push_swap_checker/master/PNGS/BAD_PS.png)
+
+5) In other case, just run it without any flag.
+
+# EXAMPLE WITHOUT FLAG
+
+![alt text](https://raw.github.com/ksnow-be/push_swap_checker/master/PNGS/JUST1-100.png)
+
+6) There is a special trigger to check your (1 .. 5) randoms to check your programm does more than 12 operations.
+
+# EXAMPLE ON 5 RANDOMS
+
+![alt text](https://raw.github.com/ksnow-be/push_swap_checker/master/PNGS/JUST5.png)
+
+7) If you are using SDL or MLX vizualizers, your valgrind test probably will show 0 heap usage.
+    In that case, create an infinite loop in your programm main, than run it as a Daemon, than use "LEAKS PID".
+  
+# EXAMPLE ON SDL/MLX VIZUALIZERS (LEAK PROBLEM)
+
+![alt text](https://raw.github.com/ksnow-be/push_swap_checker/master/PNGS/SDL_PS.png)

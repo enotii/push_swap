@@ -1,3 +1,4 @@
 {
-	"norminette.command": "norminette -R CheckForbiddenSourceHeader"
+	"norminette.command": "norminette -R CheckForbiddenSourceHeader",
+	"editor.insertSpaces": false
 }

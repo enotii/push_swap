@@ -6,7 +6,7 @@
 /*   By: caking <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 22:43:22 by caking            #+#    #+#             */
-/*   Updated: 2019/08/03 22:44:36 by caking           ###   ########.fr       */
+/*   Updated: 2019/08/03 23:01:36 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_op(t_struct *s, t_do **head, char *src)
 
 	point = *head;
 	if (s->visualization == 1 || s->visualization == 2)
-		vizual(s);
+		vizual(s, src);
 	do_something(s, src);
 	if (point->s == NULL)
 		point->s = ft_strdup(src);

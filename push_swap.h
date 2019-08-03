@@ -6,7 +6,7 @@
 /*   By: caking <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 13:17:42 by caking            #+#    #+#             */
-/*   Updated: 2019/08/03 22:42:44 by caking           ###   ########.fr       */
+/*   Updated: 2019/08/03 23:06:16 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ void	ft_print_stack(t_struct *src, int i, int len, int l);
 int		ft_int_strlen(int num);
 int		ft_atoi_ssize(char *src);
 int		ft_isspace(char c);
-void	vizual(t_struct *s);
-
+void	vizual(t_struct *s, char *src);
+void	ft_op(t_struct *s, t_do **head, char *src);
+void	validate_checker(t_struct *new, int argc, char **argv);
 
 #endif
