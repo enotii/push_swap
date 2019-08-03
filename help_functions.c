@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   help_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: caking <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 15:21:35 by caking            #+#    #+#             */
-/*   Updated: 2019/08/02 15:12:09 by caking           ###   ########.fr       */
+/*   Updated: 2019/08/03 20:26:28 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ void	check_dublicate(int *array, int n)
 	int		j;
 
 	i = 0;
-	if(n == 1)
-		ft_error(2);
 	while (i < n)
 	{
 		tmp = array[i];
@@ -84,10 +82,9 @@ void	ft_error(int n)
 	ft_putstr("\033[0;31m");
 	(n == 1) ? (ft_putstr("duplicate array\n")) : 0;
 	(n == 2) ? (ft_putstr("this is not array\n")) : 0;
-	(n == 3) ? (ft_putstr("usage ./checker with arg")) : 0;
+	(n == 3) ? (ft_putstr("usage with arg")) : 0;
 	(n == 4) ? (ft_putstr("this is not valid oparations")) : 0;
-
-
+	(n == 5) ? (ft_putstr("bigger max int or min int")) : 0;
 	exit(-1);
 }
 
@@ -108,6 +105,43 @@ int		need_sort(int *arr, int in_a, int n)
 	}
 	return (1);
 }
+
+int		ft_isspace(char c)
+{
+	if (c == ' ' || c == '\n' || c == '\t' ||
+			c == '\r' || c == '\f' || c == '\v')
+		return (1);
+	else
+		return (0);
+}
+
+int		ft_atoi_ssize(char *src)
+{
+	ssize_t		tmp;
+	ssize_t		sign;
+
+	tmp = 0;
+	sign = 1;
+	while (ft_isspace(*src))
+		src++;
+	if (*src == '-')
+		sign = -1;
+	if (*src == '-' || *src == '+')
+		src++;
+	while (ft_isdigit(*src))
+	{
+		tmp *= 10;
+		tmp += *src - '0';
+		src++;
+	}
+	if (*src != '\0' && *src != '-' && !ft_isdigit(*src))
+		ft_error(5);
+	tmp = tmp * sign;
+	if (tmp > 2147483647 || tmp < -2147483648)
+		ft_error(5);
+	return ((int)tmp);
+}
+
 void    do_something(t_struct *arr, char *op)
 {
 	int f;

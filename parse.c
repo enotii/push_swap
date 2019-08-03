@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: caking <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/02 14:21:54 by caking            #+#    #+#             */
-/*   Updated: 2019/08/02 15:30:40 by caking           ###   ########.fr       */
+/*   Updated: 2019/08/03 20:28:56 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,14 @@ void stack_done(t_struct *arr, char **result, int n)
     arr->n = arr->in_a;
     while(i < n)
     {
-        arr->a[j] = ft_atoi(result[i]);
+        arr->a[j] = ft_atoi_ssize(result[i]);
         j++;
         i++;
     }
     if(arr->argc == 1)
         n--;
+    if(arr->in_a == 1)
+        ft_error(2);
 }
 
 void    ft_split(t_struct *arr, char *str)

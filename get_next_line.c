@@ -3,104 +3,62 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: caking <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/02 14:26:25 by caking            #+#    #+#             */
-/*   Updated: 2019/08/02 14:29:04 by caking           ###   ########.fr       */
+/*   Created: 2019/01/31 02:23:53 by caking            #+#    #+#             */
+/*   Updated: 2019/08/03 18:13:31 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	ft_read(int fd, char **src)
+int	next_line(int fd, char **line, char **tmp)
 {
-	long	len;
-	char	*res;
-	char	tmp[BUFF + 1];
+	char *sbuff;
 
-	ft_bzero(tmp, BUFF + 1);
-	len = read(fd, tmp, BUFF);
-	if (*src && len > 0)
+	if (ft_strchr(tmp[fd], '\n') != NULL)
 	{
-		res = ft_strjoin(*src, tmp);
-		ft_strdel(src);
-		*src = res;
+		*line = ft_strsub(tmp[fd], 0, \
+		ft_strchr(tmp[fd], '\n') - (tmp[fd]));
+		sbuff = ft_strsub(tmp[fd], (ft_strchr(tmp[fd], '\n') - (tmp[fd])) \
+		+ 1, ft_strlen(tmp[fd]) - (ft_strchr(tmp[fd], '\n') - (tmp[fd])));
+		free(tmp[fd]);
+		tmp[fd] = sbuff;
+		return (1);
 	}
-	else if (*src == NULL && len > 0)
-		*src = ft_strdup(tmp);
-	return (len);
-}
-
-int		ft_find_line(char **src, char **line, unsigned int index)
-{
-	char *tmp;
-
-	tmp = *src;
-	if (tmp[index] != '\0')
+	if (ft_strchr(tmp[fd], '\n') == NULL)
 	{
-		if (index == 0)
-			*line = ft_strncpy(ft_strnew(0), tmp, index);
-		else
-			*line = ft_strsub(*src, 0, index);
-		tmp = ft_strsub(*src, (index + 1), (ft_strlen(*src) - index - 1));
-		ft_strdel(src);
-		*src = tmp;
-	}
-	else
-	{
-		*line = ft_strdup(*src);
-		ft_strdel(src);
+		*(line) = ft_strsub(tmp[fd], 0, ft_strlen(tmp[fd]));
+		ft_strdel(&tmp[fd]);
+		return (1);
 	}
 	return (1);
 }
 
-int		ft_get_line(char **src, int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
-	char			*tmp;
-	long			len_read;
-	unsigned int	index;
+	int			ret;
+	char		buff[BUFF + 1];
+	char		*tmp;
+	static char	*tmp_buff[MAX_FD];
 
-	len_read = 1;
-	if (*src == NULL)
-		len_read = ft_read(fd, src);
-	while (len_read != -1)
-	{
-		tmp = *src;
-		if ((tmp == NULL || tmp[0] == '\0') && len_read == 0)
-			return (0);
-		index = 0;
-		while (tmp[index])
-		{
-			if (tmp[index] == '\n')
-				return (ft_find_line(src, line, index));
-			else if (tmp[index + 1] == '\0' && len_read == 0)
-				return (ft_find_line(src, line, (index + 1)));
-			index++;
-		}
-		len_read = ft_read(fd, src);
-	}
-	return (-1);
-}
-
-int		get_next_line(const int fd, char **line)
-{
-	static t_file	*list;
-	t_file			*point;
-
-	if (BUFF <= 0 || fd < 0 || !line)
+	ret = 0;
+	if (fd < 0 || line == NULL)
 		return (-1);
-	point = list;
-	while (point)
+	while ((ret = read(fd, buff, BUFF)) > 0)
 	{
-		if (point->fd == fd)
-			return (ft_get_line(&point->line, point->fd, line));
-		point = point->next;
+		buff[ret] = '\0';
+		if (tmp_buff[fd] == NULL)
+			tmp_buff[fd] = ft_strnew(BUFF);
+		tmp = ft_strjoin(tmp_buff[fd], (char *)buff);
+		free(tmp_buff[fd]);
+		tmp_buff[fd] = tmp;
+		if (ft_strchr(tmp_buff[fd], '\n'))
+			break ;
 	}
-	if (!(point = (t_file*)malloc(sizeof(t_file))))
+	if (ret < 0)
 		return (-1);
-	point->fd = fd;
-	point->line = NULL;
-	point->next = list;
-	list = point;
-	return (ft_get_line(&point->line, point->fd, line));
+	else if (ret == 0 && (tmp_buff[fd] == NULL || tmp_buff[fd][0] == '\0'))
+		return (0);
+	return (next_line(fd, line, tmp_buff));
 }

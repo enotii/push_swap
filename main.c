@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: caking <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 13:16:53 by caking            #+#    #+#             */
-/*   Updated: 2019/08/02 14:21:38 by caking           ###   ########.fr       */
+/*   Updated: 2019/08/03 20:51:04 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int main(int argc, char *argv[])
 {
     t_struct    *arr;
 
-    if(argc == 1)
-        return(0);
+	(argc == 1) ? (ft_error(2)) : 0;
+	(argv[1][0] == '\0') ? (ft_error(2)) : 0;
     arr = (t_struct*)malloc(sizeof(t_struct));
     arr->visualization = 0;
     if(ft_strcmp(argv[1],"-v") == 0)
