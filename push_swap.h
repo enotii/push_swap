@@ -6,13 +6,12 @@
 /*   By: caking <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 13:17:42 by caking            #+#    #+#             */
-/*   Updated: 2019/08/03 20:13:50 by caking           ###   ########.fr       */
+/*   Updated: 2019/08/03 22:42:44 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include "libft/libft.h"
@@ -67,6 +66,7 @@ void	ft_print_stack(t_struct *src, int i, int len, int l);
 int		ft_int_strlen(int num);
 int		ft_atoi_ssize(char *src);
 int		ft_isspace(char c);
+void	vizual(t_struct *s);
 
 
 #endif

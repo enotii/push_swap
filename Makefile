@@ -6,7 +6,7 @@
 #    By: caking <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/29 16:31:21 by caking            #+#    #+#              #
-#    Updated: 2019/08/03 20:50:54 by caking           ###   ########.fr        #
+#    Updated: 2019/08/03 22:40:43 by caking           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRC =   help_functions.c \
 		commands.c \
 		push_swap.c \
 		parse.c \
-		get_next_line.c 
+		get_next_line.c \
+		help_functions2
 		
 OBJ = $(SRC:.c=.o)
 
@@ -54,3 +55,9 @@ debugc:
 
 debugp:
 	 gcc -ggdb main.c push_swap.c help_functions.c commands.c get_next_line.c parse.c -I push_swap.h -I libft/libft.h -L./libft -lft $(PRINTF)
+
+val:
+	valgrind --leak-check=full ./checker 4 3 2 1
+
+norm:
+	norminette -R CheckForbiddenSourceHeader push_swap.c

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   commands.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: caking <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 16:05:41 by caking            #+#    #+#             */
-/*   Updated: 2019/07/31 12:34:18 by caking           ###   ########.fr       */
+/*   Updated: 2019/08/03 22:38:05 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,4 +147,32 @@ void	ft_swap_two_first(t_struct *src, int f)
 		(f == 1) ? (src->a = tmp) : 0;
 		(f != 1) ? (src->b = tmp) : 0;
 	}
+}
+
+
+int		ft_atoi_ssize(char *src)
+{
+	ssize_t		tmp;
+	ssize_t		sign;
+
+	tmp = 0;
+	sign = 1;
+	while (ft_isspace(*src))
+		src++;
+	if (*src == '-')
+		sign = -1;
+	if (*src == '-' || *src == '+')
+		src++;
+	while (ft_isdigit(*src))
+	{
+		tmp *= 10;
+		tmp += *src - '0';
+		src++;
+	}
+	if (*src != '\0' && *src != '-' && !ft_isdigit(*src))
+		ft_error(5);
+	tmp = tmp * sign;
+	if (tmp > 2147483647 || tmp < -2147483648)
+		ft_error(5);
+	return ((int)tmp);
 }

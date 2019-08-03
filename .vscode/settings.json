@@ -1,0 +1,3 @@
+{
+	"norminette.command": "norminette -R CheckForbiddenSourceHeader"
+}

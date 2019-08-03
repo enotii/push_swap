@@ -6,7 +6,7 @@
 /*   By: caking <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 16:34:42 by caking            #+#    #+#             */
-/*   Updated: 2019/08/03 20:27:15 by caking           ###   ########.fr       */
+/*   Updated: 2019/08/03 21:32:20 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		main(int argc, char **argv)
 	t_struct		*new;
 	char			*src;
 
-	(argc == 1) ? (ft_error(2)) : 0;
+	(argc == 1) ? (exit(-1)) : 0;
 	(argv[1][0] == '\0') ? (ft_error(2)) : 0;
     new = (t_struct*)malloc(sizeof(t_struct));
     new->visualization = 0;
