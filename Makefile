@@ -6,7 +6,7 @@
 #    By: caking <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/29 16:31:21 by caking            #+#    #+#              #
-#    Updated: 2019/08/03 23:27:52 by caking           ###   ########.fr        #
+#    Updated: 2019/08/03 23:35:38 by caking           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,4 +61,4 @@ val:
 	valgrind --leak-check=full ./checker 4 3 2 1
 
 norm:
-	norminette -R CheckForbiddenSourceHeader *.c
+	norminette -R CheckForbiddenSourceHeader *
