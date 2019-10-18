@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   help_function3.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: caking <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/03 23:19:19 by caking            #+#    #+#             */
-/*   Updated: 2019/08/03 23:26:41 by caking           ###   ########.fr       */
+/*   Updated: 2019/10/18 20:13:43 by caking           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,7 @@ int		ft_atoi_ssize(char *src)
 		src++;
 	}
 	if (*src != '\0' && *src != '-' && !ft_isdigit(*src))
-		ft_error(5);
-	tmp = tmp * sign;
+		tmp = tmp * sign;
 	if (tmp > 2147483647 || tmp < -2147483648)
 		ft_error(5);
 	return ((int)tmp);

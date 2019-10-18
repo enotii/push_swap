@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: caking <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: caking <caking@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/29 16:31:21 by caking            #+#    #+#              #
-#    Updated: 2019/08/03 23:35:38 by caking           ###   ########.fr        #
+#    Updated: 2019/10/18 15:43:36 by caking           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,10 +52,10 @@ fclean: clean
 re: fclean all
 
 debugc:
-	 gcc -ggdb checker_main.c push_swap.c help_functions.c commands.c get_next_line.c parse.c -I push_swap.h -I libft/libft.h -L./libft -lft $(PRINTF)
+	 gcc -ggdb checker_main.c push_swap.c help_functions.c help_functions2.c help_function3.c commands.c get_next_line.c parse.c -I push_swap.h -I libft/libft.h -L./libft -lft $(PRINTF)
 
 debugp:
-	 gcc -ggdb main.c push_swap.c help_functions.c commands.c get_next_line.c parse.c -I push_swap.h -I libft/libft.h -L./libft -lft $(PRINTF)
+	 gcc -ggdb main.c push_swap.c help_functions.c help_functions2.c help_function3.c commands.c get_next_line.c parse.c -I push_swap.h -I libft/libft.h -L./libft -lft $(PRINTF)
 
 val:
 	valgrind --leak-check=full ./checker 4 3 2 1
